@@ -1,35 +1,36 @@
-#N canvas 763 320 734 606 10;
+#N canvas 779 287 734 606 10;
 #X obj 122 88 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
-#X floatatom 122 274 5 0 0 0 - - - 0;
-#X obj 122 295 mtof;
-#X obj 122 339 *~ 0.1;
-#X obj 122 394 dac~;
+#X floatatom 122 268 5 0 0 0 - - - 0;
+#X obj 122 335 mtof;
+#X obj 122 379 *~ 0.1;
+#X obj 122 434 dac~;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array melody 16 float 3;
 #A 0 45 45 50 0 52 0 53 48 48 48 48 48 45 45 48 48;
 #X coords 0 80 16 40 200 60 1 0 0;
 #X restore 473 56 graph;
-#X obj 122 317 phasor~;
-#X obj 122 249 tabread melody;
-#X floatatom 122 225 5 0 0 0 - - - 0;
-#X obj 122 139 int;
-#X obj 190 132 + 1;
-#X obj 190 157 % 64;
-#X msg 361 202 \; melody 0 55 55 55 55 57 0 55 55 52 52 53 0 48 0 47
+#X obj 122 357 phasor~;
+#X obj 122 244 tabread melody;
+#X floatatom 122 221 5 0 0 0 - - - 0;
+#X obj 122 135 int;
+#X obj 190 139 + 1;
+#X obj 190 163 % 64;
+#X msg 361 197 \; melody 0 55 55 55 55 57 0 55 55 52 52 53 0 48 0 47
 47, f 55;
-#X msg 361 285 \; melody 0 50 50 50 48 50 50 53 50 48 45 53 53 0 53
+#X msg 361 267 \; melody 0 50 50 50 48 50 50 53 50 48 45 53 53 0 53
 48 48;
 #X obj 249 340 select 0 1 2 3;
-#X obj 249 196 / 16;
+#X obj 249 197 / 16;
 #X obj 122 197 % 16;
-#X msg 361 328 \; melody 0 50 50 0 50 50 0 50 0 52 52 47 47 50 50 53
+#X msg 361 340 \; melody 0 50 50 0 50 50 0 50 0 52 52 47 47 50 50 53
 53;
-#X msg 361 243 \; melody 0 45 45 50 0 52 0 53 48 48 48 48 48 45 45
+#X msg 361 232 \; melody 0 45 45 50 0 52 0 53 48 48 48 48 48 45 45
 48 48;
-#X obj 122 115 metro 120;
+#X obj 122 111 metro 120;
+#X obj 122 291 + 24;
 #X connect 0 0 19 0;
-#X connect 1 0 2 0;
+#X connect 1 0 20 0;
 #X connect 2 0 6 0;
 #X connect 3 0 4 0;
 #X connect 3 0 4 1;
@@ -48,3 +49,4 @@
 #X connect 15 0 14 0;
 #X connect 16 0 8 0;
 #X connect 19 0 9 0;
+#X connect 20 0 2 0;
