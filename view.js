@@ -13,6 +13,14 @@ var centy = 2500;
 var rx;
 var ry;
 
+var sound;
+ 
+function preload()
+{
+  // initialize sound
+  sound = loadSound('test.mp3');
+}
+
 // if point x,y is in circle
 function isInCircle(x, y, cx, cy, r) {
     return (Math.pow(cx - x, 2) + Math.pow(cy - y, 2)) < Math.pow(r, 2);
@@ -184,6 +192,7 @@ function drawHalo(cx, cy, d) {
 
 function mouseClicked() {
     if(mode != 0){
+        sound.play();
         riddle = 1;
         center_x = mouseX;
         center_y = mouseY;
