@@ -13,12 +13,18 @@ var centy = 2500;
 var rx;
 var ry;
 
-var sound;
+var sound1;
+var sound2;
+var sound3;
+var sound4;
  
 function preload()
 {
   // initialize sound
-  sound = loadSound('test.mp3');
+  sound1 = loadSound('Wander1.mp3');
+  sound4 = loadSound('hensuu_jazz.mp3');
+  sound3 = loadSound('hensuu_PD.mp3');
+  sound2 = loadSound('Original_PD.mp3');
 }
 
 // if point x,y is in circle
@@ -39,11 +45,11 @@ function draw() {
   clear();
   colorMode(HSL);
   const BASE_COLOR = 163;//~~(Math.random() * 360);
-  console.log(BASE_COLOR);
+  //console.log(BASE_COLOR);
   const BASE_COLOR2 = 50;//~~(Math.random() * 360);
   const BASE_COLOR3 = 10;
   const BASE_COLOR4 = 200;
-  console.log(mode);
+  //console.log(mode);
   if(mouseX < 200 && mouseY < 200){
     mode = 1;
   }
@@ -80,7 +86,7 @@ function draw() {
         }
     }
     
-    console.log(outerDiam);
+    //console.log(outerDiam);
     
     outerDiam = outerDiam + 270;
         
@@ -104,7 +110,7 @@ function draw() {
             text('Electronic', 1550, 2500);
         }
         else if (mode == 4){
-            text('R&B', 2050, 2500);
+            text('Fantastic', 1750, 2500);
         }
     }
   }
@@ -118,7 +124,7 @@ function draw() {
         text('Electronic', 1550, 2500);
     }
     else if (theme == 4){
-        text('R&B', 2050, 2500);
+        text('Fantastic', 1750, 2500);
     }
 
     strokeWeight(20);
@@ -192,12 +198,43 @@ function drawHalo(cx, cy, d) {
 
 function mouseClicked() {
     if(mode != 0){
-        sound.play();
         riddle = 1;
         center_x = mouseX;
         center_y = mouseY;
         theme = mode;
         mode = 0;
+        if(theme == 1){
+          sound1.stop();
+          sound2.stop();
+          sound3.stop();
+          sound4.stop();
+          sound1.play();
+          sound1.loop();
+        }
+        else if(theme == 2){
+          sound3.stop();
+          sound4.stop();
+          sound1.stop();
+          sound2.stop();
+          sound2.play();
+          sound2.loop();
+        }
+     else if(theme == 3){
+          sound2.stop();
+          sound4.stop();
+          sound1.stop();
+          sound3.stop();
+          sound3.play();
+          sound3.loop();
+        }
+      else if(theme == 4){
+          sound3.stop();
+          sound2.stop();
+          sound1.stop();
+          sound4.stop();
+          sound4.play();
+          sound4.loop();
+        }
     }
 }
 
